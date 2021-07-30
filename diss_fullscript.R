@@ -173,11 +173,11 @@ eafs <- eafs %>% select(main_file_vars)
 #' 
 #' Note, for this version of the script, we will use the Foreign dataset
 
-#2A. Save complete cases
+#Save complete cases
 eafs <- eafs[complete.cases(eafs %>% select(egov_vars)),] %>% 
   filter(result == "Complete", age >= 18)
 
-#1D. Rename some relevant variables for easier analysis
+#Rename some relevant variables for easier analysis
 #Rename the Foreign dataset
 names(eafs)[names(eafs) == 'eou1_egov'] <- 'eou1'
 names(eafs)[names(eafs) == 'eou2_gov'] <- 'eou2'
@@ -197,7 +197,7 @@ names(eafs)[names(eafs) == 'pbc3_egov'] <- 'pbc3'
 names(eafs)[names(eafs) == 'pbc4_egov'] <- 'pbc4'
 
 
-#2B. Create age and education group variables
+#Create age and education group variables
 eafs <- eafs %>% 
   mutate(
     age_group = case_when(
@@ -219,7 +219,7 @@ eafs <- eafs %>%
   ) 
 
 
-#2C. Convert group variables to factors. Education is ordinal
+#Convert group variables to factors. Education is ordinal
 eafs$age_group <- factor(eafs$age_group)
 eafs$education_group <- factor(eafs$education_group, 
                                levels = c('None or Some Primary', 
@@ -254,7 +254,6 @@ eafs$intention <- factor(eafs$intention, ordered = TRUE)
 #'    * Derive the different components separately and save on different ojbects
 #'    * Merge object and export to Excel 
 #' B. Create Graphs and Charts
-#' C. 
 #' 
 #' 
 
@@ -293,7 +292,7 @@ freqObject <- freqObject %>%
 
 
 
-#Respondents by District and Area
+#Chart: Respondents by District and Area
 resByDisAreaPlot <- eafs %>% ggplot(aes(x=district, fill=urban_rural)) +
   geom_bar(position = 'stack') +
   geom_text(aes( y=..count.., label=..count..), size = 5, color = 'white',
@@ -304,7 +303,7 @@ resByDisAreaPlot <- eafs %>% ggplot(aes(x=district, fill=urban_rural)) +
   guides(fill=guide_legend(title="Area")) +
   theme_blank_xblank
 
-#Internet at home by Distirct
+#Chart: Internet at home by Distirct
 internetByDisPlot <- eafs %>% 
   ggplot(aes(x=district, fill=access_internet_athome, label = district)) +
   geom_bar(position = 'fill') +
@@ -491,25 +490,25 @@ eafs$intention_bin <- factor(eafs$intention_bin)
 levels(eafs$intention_bin)[levels(eafs$intention_bin)==0] <- "Low"
 levels(eafs$intention_bin)[levels(eafs$intention_bin)==1] <- "High"
 
-#dotplot of peou x intention
+#Chart: dotplot of peou x intention
 ggplot(eafs, aes(x=peou, y=intention_bin)) + 
   geom_jitter(width = 0.25, height = 0.2, color=primaryColor, size = 2) + 
   labs(y='Intention') +
   theme_dotplot
 
-#dotplot of pu x intention
+#Chart: dotplot of pu x intention
 ggplot(eafs, aes(x=pu, y=intention_bin)) + 
   geom_jitter(width = 0.25, height = 0.2, color=primaryColor) + 
   labs(y='Intention') +
   theme_dotplot
 
-#dotplot of teg x intention
+#Chart: dotplot of teg x intention
 ggplot(eafs, aes(x=teg, y=intention_bin)) + 
   geom_jitter(width = 0.25, height = 0.2, color=primaryColor) + 
   labs(y='Intention') +
   theme_dotplot
 
-#dotplot of pbc x intention
+#Chart: dotplot of pbc x intention
 ggplot(eafs, aes(x=pbc, y=intention_bin)) + 
   geom_jitter(width = 0.25, height = 0.2, color=primaryColor) + 
   labs(y='Intention') +
