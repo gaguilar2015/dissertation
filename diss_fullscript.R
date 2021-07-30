@@ -178,7 +178,6 @@ eafs <- eafs[complete.cases(eafs %>% select(egov_vars)),] %>%
   filter(result == "Complete", age >= 18)
 
 #Rename some relevant variables for easier analysis
-#Rename the Foreign dataset
 names(eafs)[names(eafs) == 'eou1_egov'] <- 'eou1'
 names(eafs)[names(eafs) == 'eou2_gov'] <- 'eou2'
 names(eafs)[names(eafs) == 'eou3_egov'] <- 'eou3'
