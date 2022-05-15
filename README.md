@@ -1,6 +1,6 @@
 # Dissertation
 
-This respository contains the entirity of the R code and syntax used during my dissertation for Salford Business School. The code can be found in the file named **diss_fullscript.R**
+This respository contains the entirity of the R code and syntax used during my dissertation for Salford Business School. The code can be found in the file named **diss_fullscript.R**. The full disseration report can be found in the file 'Disseration.pdf'.
 
 The dissertation is titled *E-Government Acceptance and Intention to Use: Analyzing Adoption Factors in the Belizean Context Using an Extended Technology Acceptance Model*. The study performed for this dissertation utilized primary data collected from a roughly representative sample of the Belizean Population. A survey-tool was adapted and validated using the **Technology Acceptance Model** as the foundation. The subsequently collected data underwent rigorous processing and analysis. The analysis performed on the data includes Exploratory Data Analysis, confirmatory factor analysis, and logistic regression. The logistic model was regressed on factor scores obtained from the CFA, a technique known as factor-score regression. 
 
